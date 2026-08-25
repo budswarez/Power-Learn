@@ -1,0 +1,154 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Cores primárias */
+  --color-primary: #E60014;
+  --color-primary-hover: #C0000F;
+  --color-primary-dim: #FFB4AA;
+
+  /* Superfícies */
+  --color-surface: #131313;
+  --color-surface-low: #1C1B1B;
+  --color-surface-container: #201F1F;
+  --color-surface-high: #2A2A2A;
+  --color-surface-highest: #353534;
+  --color-surface-lowest: #0E0E0E;
+
+  /* Texto */
+  --color-on-surface: #E5E2E1;
+  --color-on-surface-variant: #E9BCB6;
+
+  /* Outros */
+  --color-outline: #AF8782;
+  --color-outline-variant: #5E3F3B;
+  --color-tertiary: #A9C7FF;
+
+  /* Fontes */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+/* Ícones Material Symbols */
+.material-symbols-rounded {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  user-select: none;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* Shared input style used in admin forms */
+.input-field {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--color-surface-highest);
+  color: var(--color-on-surface);
+  font-size: 0.875rem;
+  outline: none;
+  transition: box-shadow 0.15s;
+  border: 1px solid transparent;
+}
+.input-field::placeholder {
+  color: var(--color-on-surface-variant);
+  opacity: 0.6;
+}
+.input-field:focus {
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+select.input-field {
+  cursor: pointer;
+}
+
+/* Scrollbar customizada */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-lowest);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-highest);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline);
+}
+
+/* ── TipTap / Step content rendering ── */
+.step-content {
+  --tw-prose-body: var(--color-on-surface);
+  --tw-prose-headings: var(--color-on-surface);
+  --tw-prose-lead: var(--color-on-surface-variant);
+  --tw-prose-links: var(--color-primary);
+  --tw-prose-bold: var(--color-on-surface);
+  --tw-prose-counters: var(--color-on-surface-variant);
+  --tw-prose-bullets: var(--color-on-surface-variant);
+  --tw-prose-hr: var(--color-surface-highest);
+  --tw-prose-quotes: var(--color-on-surface-variant);
+  --tw-prose-quote-borders: var(--color-primary);
+  --tw-prose-captions: var(--color-on-surface-variant);
+  --tw-prose-code: var(--color-on-surface);
+  --tw-prose-pre-code: var(--color-on-surface);
+  --tw-prose-pre-bg: var(--color-surface-highest);
+  --tw-prose-th-borders: var(--color-surface-highest);
+  --tw-prose-td-borders: var(--color-surface-highest);
+}
+.step-content a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.step-content img {
+  border-radius: 0.75rem;
+  max-width: 100%;
+}
+.step-content iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.75rem;
+  border: none;
+}
+.step-content pre {
+  background: var(--color-surface-highest);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.step-content code {
+  background: var(--color-surface-highest);
+  border-radius: 0.25rem;
+  padding: 0.1em 0.35em;
+  font-size: 0.85em;
+}
+.step-content pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* TipTap editor toolbar & area */
+.tiptap-editor {
+  min-height: 280px;
+  outline: none;
+}
+.tiptap-editor p.is-editor-empty:first-child::before {
+  color: var(--color-on-surface-variant);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
